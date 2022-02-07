@@ -46,7 +46,7 @@ Nous avons donc décider de formater les données afin de pouvoir utiliser la di
 
 Nous avons donc trouvé une autre solution. Nous avons implémenté l'algorithme de BallTree qui permet d'éviter de parcourir toutes les images dans l'ensemble d'entraînement afin de déterminer les K plus proches voisins.
 
-Afin de ne pas recalculer le ball Tree à chaque prédiction, nous avons stocké l'objet dans un fichier grâce au module Pickle de Python.
+Afin de ne pas recalculer le ball Tree à chaque prédiction, nous avons stocké l'objet dans un fichier grâce au module Pickle de Python. Malheureusement, la taille du fichier pickle est trop importante pour être push sur git. L'algorithme du ballTree s'exécute donc à chaque fois ce qui rends KNN très lent.
 
 ### CNN
 
