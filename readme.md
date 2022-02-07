@@ -1,4 +1,4 @@
-# Lancement du projet
+# Lancement du projet
 
 ## Les imports nécessaires
 
@@ -14,6 +14,6 @@ pip install tensorflow
 pip install sqlite3
 ```
 
-## Lancement
+## Lancement
 
 Executez le fichier **mainUI.py** pour lancer l'interface.
