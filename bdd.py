@@ -150,7 +150,7 @@ def getExpName(idExp):
     exp = con.execute("select * from exp where id = ?", (idExp,)).fetchone()
     algo = con.execute("select name from algo where id = ?", (exp[2],)).fetchone()
     name = str(idExp) + " - " + algo[0]
-    if algo == 'KNN':
+    if algo[0] == 'KNN':
         name += " K = " + str(exp[5]) + ", dist = " + exp[6]
     con.close()
     return name
@@ -259,8 +259,10 @@ if __name__ == "__main__":
     #date, algo, timeExec, accuracy, k, distance, predictionDico = executeAlgoNB()
     #add_exp(date, algo, timeExec, accuracy, k, distance, predictionDico)
     
-    date, algo, timeExec, accuracy, k, distance, predictionDico = executeAlgoKNN()
-    add_exp(date, algo, timeExec, accuracy, k, distance, predictionDico)
+    #date, algo, timeExec, accuracy, k, distance, predictionDico = executeAlgoKNN()
+    #add_exp(date, algo, timeExec, accuracy, k, distance, predictionDico)
+    
+    
     
     #date, algo, timeExec, accuracy, k, distance, predictionDico = executeAlgoCNN()
     #add_exp(date, algo, timeExec, accuracy, k, distance, predictionDico)
@@ -272,6 +274,13 @@ if __name__ == "__main__":
     con.commit()
     con.close()
     """
+    
+    con = create_connection('./Data/digits.db')
+    rawList = con.execute("select * from exp").fetchall()
+    con.close()
+    for r in rawList:
+        print(r)
+    
     #delete()
     #getTrainImageLabels(True)
     #for i in range(10):
@@ -290,6 +299,7 @@ if __name__ == "__main__":
         print(row)
       """ 
     #init('./Data/digits.db')
+    
     """SEE THE OPERATIONS
     row = (connection.execute("select * from algo"))
     for r in row:

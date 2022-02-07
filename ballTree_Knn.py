@@ -13,6 +13,7 @@ import heapq as h
 from ball_tree_test import BallTree, item
 import distance
 import bdd
+import os.path
 
 class BallTree_Knn(algorithm.Algorithm):
     
@@ -20,16 +21,16 @@ class BallTree_Knn(algorithm.Algorithm):
         self.dist = distance
         self.k = k
         self.queue = []
-        
-        print("load pickle")
-        with open('./Data/BallTree.pickle', 'rb') as file:
-            self.BT = pickle.load(file)
-        print("end loading")
+        if os.path.isfile('./Data/BallTree.pickle'):
+            print("load pickle")
+            with open('./Data/BallTree.pickle', 'rb') as file:
+                self.BT = pickle.load(file)
+            print("end loading")
     
     def fit(self, trainSet, labelTrainSet):
-        #self.BT = BallTree(trainSet.reshape(len(trainSet), 28*28), labelTrainSet)
+        if not os.path.isfile('./Data/BallTree.pickle'):
+            self.BT = BallTree(trainSet.reshape(len(trainSet), 28*28), labelTrainSet)
         
-        pass
         
             
     def predict(self, testArray):
