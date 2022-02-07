@@ -1,0 +1,6 @@
+.git
+Data/Deprecated
+Data/backup
+Data/BallTree.pickle
+Deprecated
+__pycache__
