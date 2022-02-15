@@ -1,6 +1,6 @@
 # Rapport ML
 
-Suite à une mauvaise manipulation de git, j'ai malencontreusement supprimé le contenu de ma base de données. Ainsi il manque les données concernant KNN. J'ai enregistré un fichier texte au cours du développement qui contient moins d'informations que dans le sql mais qui permet de montrer certains résultats. Vous trouverez l'accuracy et la précision pour chaque digit pour des valeurs de k de 2, 4, 5, 6 et 7. D'ici la présentation, je repeuplerai la base de données.
+Suite à une mauvaise manipulation de git, j'ai malencontreusement supprimé le contenu de ma base de données. Ainsi il manque les données concernant KNN. J'ai enregistré un fichier texte au cours du développement qui contient moins d'informations que dans le sql mais qui permet de montrer certains résultats. Vous trouverez l'accuracy et la précision pour chaque digit pour des valeurs de k de 2, 4, 5, 6 et 7. D'ici la présentation, je repeuplerai la base de données. Le fichier est : **result_knn**
 
 ## Interface graphique
 

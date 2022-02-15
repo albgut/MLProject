@@ -225,8 +225,8 @@ def executeAlgoNB():
     #date, algo, timeExec, accuracy, k, distance, predictionDico)
     return (date, 'NaiveBayes', int(end - start), acc, None, None, prediction)
 
-def executeAlgoKNN():
-    alg = ballTree_Knn.BallTree_Knn(5, distance.L2())
+def executeAlgoKNN(k):
+    alg = ballTree_Knn.BallTree_Knn(k, distance.L2())
     trainSet, labelTrainSet = getTrainImageLabels(True)
     testSet, labelTestSet = getTestImageLabelsFlatten(True)
     date = datetime.datetime.now()
@@ -235,7 +235,7 @@ def executeAlgoKNN():
     prediction, acc = alg.score(testSet, labelTestSet)
     end = time.perf_counter()
     #date, algo, timeExec, accuracy, k, distance, predictionDico)
-    return (date, 'KNN', int(end - start), acc, 5, 'L2', prediction)
+    return (date, 'KNN', int(end - start), acc, k, 'L2', prediction)
 
 def executeAlgoCNN():
     alg = cnn.cnn()
@@ -258,11 +258,14 @@ if __name__ == "__main__":
     """
     #date, algo, timeExec, accuracy, k, distance, predictionDico = executeAlgoNB()
     #add_exp(date, algo, timeExec, accuracy, k, distance, predictionDico)
+    """
+    l = [3,7]
     
-    #date, algo, timeExec, accuracy, k, distance, predictionDico = executeAlgoKNN()
-    #add_exp(date, algo, timeExec, accuracy, k, distance, predictionDico)
+    for k in l:
+        date, algo, timeExec, accuracy, k, distances, predictionDico = executeAlgoKNN(k)
+        add_exp(date, algo, timeExec, accuracy, k, distances, predictionDico)
     
-    
+    """
     
     #date, algo, timeExec, accuracy, k, distance, predictionDico = executeAlgoCNN()
     #add_exp(date, algo, timeExec, accuracy, k, distance, predictionDico)
